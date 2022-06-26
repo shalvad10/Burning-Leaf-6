@@ -1,0 +1,32 @@
+<div class="modal" *ngIf="activeModal">
+    <div class="cont">
+        <div class="header">
+            <span class="title" *ngIf="activeModal.title.length > 0" >
+                {{ activeModal.title }}
+            </span>
+        </div>
+        <div class="content">
+            <span *ngIf="activeModal.close" class="close" [ngStyle]="{'top': activeModal.closePositions.x + 'px','right': activeModal.closePositions.y + 'px' }" (click)="close()"> X </span>
+            <app-info
+                *ngIf="data.modal.currentModal == 'info'"
+                [modalData]="activeModal"
+                (onAction)="bubbleAction($event)"
+            ></app-info>
+            <app-buy-freespins
+                *ngIf="data.modal.currentModal == 'bonus'"
+                [freeSpins]="data.freespinTypes"
+                [selectedBet]="data.game.selectedBet"
+                [nominales]="data.game.nominales"
+                [betMultipliers]="data.game.betMultipliers"
+                [selectedMultiplierIndex]="data.game.selectedMultiplierIndex"
+                [gameLine]="data.game.gameLine"
+                [data]="data"
+                [selectedNominale]="data.game.selectedNominale"
+                (onAction)="bubbleAction($event)"
+            ></app-buy-freespins>
+            <app-bonus-type *ngIf="data.modal.currentModal == 'bonus_type'" [data]="activeModal" (onAction)="bubbleAction($event)"></app-bonus-type>
+            <app-bonus-win *ngIf="data.modal.currentModal == 'bonus_win'" [data]="activeModal" (onAction)="bubbleAction($event)"></app-bonus-win>
+            <app-game-information *ngIf="data.modal.currentModal == 'game_info'"></app-game-information>
+        </div>
+    </div>
+</div>
