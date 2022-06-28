@@ -11,12 +11,14 @@ export interface WinnObject {
 export default class SharedMethods {
 
     public static generateArrFromObj(obj: any): string[][] {
+        console.warn(obj);
         let tmpArr1: string[] = [ Symbol.getByID(obj[0].PlayerName) , Symbol.getByID(obj[1].PlayerName) , Symbol.getByID(obj[2].PlayerName)     ];
         let tmpArr2: string[] = [ Symbol.getByID(obj[0].SessionId)  , Symbol.getByID(obj[1].SessionId)  , Symbol.getByID(obj[2].SessionId)      ];
         let tmpArr3: string[] = [ Symbol.getByID(obj[0].Balance)    , Symbol.getByID(obj[1].Balance)    , Symbol.getByID(obj[2].Balance)        ];
         let tmpArr4: string[] = [ Symbol.getByID(obj[0].GameId)     , Symbol.getByID(obj[1].GameId)     , Symbol.getByID(obj[2].GameId)         ];
         let tmpArr5: string[] = [ Symbol.getByID(obj[0]['4'])       , Symbol.getByID(obj[1]['4'])       , Symbol.getByID(obj[2]['4'])           ];
-        return [tmpArr1,tmpArr2,tmpArr3,tmpArr4,tmpArr5];
+        let tmpArr6: string[] = [ Symbol.getByID(obj[0]['5'])       , Symbol.getByID(obj[1]['5'])       , Symbol.getByID(obj[2]['5'])           ];
+        return [tmpArr1,tmpArr2,tmpArr3,tmpArr4,tmpArr5,tmpArr6];
     }
 
     public static matricCheck(matrix1: any, matrix2: any): boolean {

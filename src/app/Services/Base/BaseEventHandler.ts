@@ -10,7 +10,7 @@ export default abstract class BaseEventHandler {
       case ConnEnums.events.BalanceUpdated        : { this.updateBalance(data);       break; }
       case ConnEnums.events.FreeSpinTypes         : { this.freeSpinTypes(data);       break; }
       case ConnEnums.events.BonusLeafLines        : { this.bonusleaflines(data);      break; }
-      // case ConnEnums.events.RejoinTables          : { this.setRejoinTables(data);     break; }
+      case ConnEnums.events.ChipNominals          : { this.setNominales(data);        break; }
       // case ConnEnums.events.OnlinePlayersEvent    : { this.setLobbyInfo(data);        break; }
       // case ConnEnums.events.PlayerSettings        : { this.setPlayerSettings(data);   break; }
       // case ConnEnums.events.TournamentListEvent   : { this.setTournaments(data);      break; }
@@ -20,6 +20,18 @@ export default abstract class BaseEventHandler {
       // case ConnEnums.events.MatchesEnableState    : { this.changeMatchesState(data);  break; }
       // case ConnEnums.events.MyTournaments         : { this.setMyTournaments(data);    break; }
     }
+  }
+
+  public setNominales(data: any) {
+    if (data.Array) {
+      this.data.game.nominales = [];
+      data.Array.forEach( (nom: any) => {
+        this.data.game.nominales.push(nom / 1000)
+      });
+      this.data.game.selectedNominale = this.data.game.nominales[0];
+      this.data.game.selectedBet = this.data.game.nominales[0] * this.data.game.betMultipliers[this.data.game.selectedMultiplierIndex] * this.data.game.gameLine;
+    }
+    console.warn(this.data);
   }
 
   public bonusleaflines(data: any): void {

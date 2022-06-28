@@ -3,8 +3,8 @@ import Symbol from "./Symbol";
 
 export default class Slot {
     public domElement       : any;
-    public currentSymbols   : [string[],string[],string[],string[],string[]];
-    public nextSymbols      : [string[],string[],string[],string[],string[]];
+    public currentSymbols   : [string[],string[],string[],string[],string[],string[]];
+    public nextSymbols      : [string[],string[],string[],string[],string[],string[]];
     public container        : any;
     public reels            : Reel[];
     public spinButton       : any;
@@ -20,12 +20,14 @@ export default class Slot {
       [Symbol.random(), Symbol.random(), Symbol.random()],
       [Symbol.random(), Symbol.random(), Symbol.random()],
       [Symbol.random(), Symbol.random(), Symbol.random()],
+      [Symbol.random(), Symbol.random(), Symbol.random()],
       [Symbol.random(), Symbol.random(), Symbol.random()]
     ];
 
     this.nextSymbols = [
       ["wintry", "seven", "seven"],
       ["wintry", "wintry", "wintry"],
+      ["wintry", "wild", "wintry"],
       ["wintry", "wild", "wintry"],
       ["wintry", "star", "star"],
       ["wintry", "star", "star"],
@@ -49,12 +51,10 @@ export default class Slot {
     this.nextSymbols = customSymbols;
 
     this.onSpinStart(customSymbols);
-    
+    console.warn(customSymbols, this.nextSymbols,this.reels);
     return Promise.all(
       this.reels.map((reel) => {
-        setTimeout(() => {
-          reel.renderSymbols(customSymbols[reel.index]);
-        }, 1);
+        reel.renderSymbols(customSymbols[reel.index]);
         return reel.spin();
       })
     ).then(() => this.onSpinEnd(customSymbols));

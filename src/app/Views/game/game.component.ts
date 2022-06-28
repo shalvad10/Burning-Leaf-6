@@ -57,6 +57,7 @@ export class GameComponent extends ComponentBase implements OnInit {
         console.log("onSpinEnd", symbols, this.autoSpin);
         this.winningLines = SharedMethods.checkWin(this.gameData, this.data.ammountDivide);
         this.winningSpecials = SharedMethods.checkSpecialWin(this.gameData, this.data.ammountDivide);
+        console.error(this.winningLines, this.winningSpecials);
         if (this.winningSpecials.length > 0) {
           Promise.allSettled(
             this.winningSpecials.map((winObj: any, ind: number) => {
@@ -206,6 +207,7 @@ export class GameComponent extends ComponentBase implements OnInit {
 
   public showWin(data: WinnObject, index: number) {
     setTimeout(() => {
+      console.warn(data, index);
       if (data !== undefined) {
         let reels = document.getElementsByClassName('reel');
         var symbolsCount = 1;
@@ -216,8 +218,8 @@ export class GameComponent extends ComponentBase implements OnInit {
             for (let j = 0; j < winningLines.length; j++) {
               if (i == winningLines[j][1]) {
                 if (allowBorder == true) {
-                  if (reels[i].firstChild?.childNodes[winningLines[j][0]]) {
-                    let srcArr = (reels[i].firstChild?.childNodes[winningLines[j][0]] as HTMLElement).getAttribute('src')?.split('/');
+                  if (reels[i].getElementsByClassName('cont')[0].firstChild?.childNodes[winningLines[j][0]]) {
+                    let srcArr = (reels[i].getElementsByClassName('cont')[0].firstChild?.childNodes[winningLines[j][0]] as HTMLElement).getAttribute('src')?.split('/');
                     let symbol = srcArr ? srcArr[srcArr.length - 1].toString().split('.')[0] : '';
                     if ((symbol === 'leaf' || symbol === data.symbol) && data.symbolCount >= symbolsCount) {
                       symbolsCount++;
@@ -271,7 +273,7 @@ export class GameComponent extends ComponentBase implements OnInit {
   public showSpecial(data: WinnObject, index: number) {
     let reels = document.getElementsByClassName('reel');
     for (let i = 0; i < reels.length; i++) {
-      let childNodes: any = reels[i].childNodes;
+      let childNodes: any = reels[i].getElementsByClassName('cont')[0].childNodes;
       for (let j = 0; j<childNodes.length; j++) {
         let images = childNodes[j].childNodes;
         for (let l = 0; l<images.length; l++) {

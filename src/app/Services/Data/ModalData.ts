@@ -21,7 +21,7 @@ export class ModalData {
         title: '',
         data: {},
         buttons: [
-          { text: 'OK', backgroundColor: '#5cb85c', action: 'closeGame', actionData: {} }
+          { text: 'OK', backgroundColor: '#F3C202', action: 'closeGame', actionData: {} }
         ]
       },
       bonus_type: {
