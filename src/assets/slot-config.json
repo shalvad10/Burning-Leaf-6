@@ -1,3 +1,102 @@
 {
-    "data" : "1231321"
+    "info": [
+        {
+            "symbol": "dollar",
+            "info": [
+                { "count": 6, "x": 500 },
+                { "count": 5, "x": 250 },
+                { "count": 4, "x": 20 },
+                { "count": 3, "x": 2 }
+            ],
+            "group": false
+        },
+        {
+            "symbol": "star",
+            "info": [
+                { "count": 4, "x": 200 },
+                { "count": 3, "x": 10 }
+            ],
+            "group": false
+        },
+        {
+            "symbol": "cherry",
+            "info": [
+                { "count": 6, "x": 125 },
+                { "count": 5, "x": 50 },
+                { "count": 4, "x": 12.5 },
+                { "count": 3, "x": 5 }
+            ],
+            "group": true
+        },
+        {
+            "symbol": "lemon",
+            "info": [
+                { "count": 6, "x": 125 },
+                { "count": 5, "x": 50 },
+                { "count": 4, "x": 12.5 },
+                { "count": 3, "x": 5 }
+            ],
+            "group": true
+        },
+        {
+            "symbol": "orange",
+            "info": [
+                { "count": 6, "x": 125 },
+                { "count": 5, "x": 50 },
+                { "count": 4, "x": 12.5 },
+                { "count": 3, "x": 5 }
+            ],
+            "group": true
+        },
+        {
+            "symbol": "plum",
+            "info": [
+                { "count": 6, "x": 125 },
+                { "count": 5, "x": 50 },
+                { "count": 4, "x": 12.5 },
+                { "count": 3, "x": 5 }
+            ],
+            "group": true
+        },
+        {
+            "symbol": "bell",
+            "info": [
+                { "count": 6, "x": 375 },
+                { "count": 5, "x": 125 },
+                { "count": 4, "x": 25 },
+                { "count": 3, "x": 10 }
+            ],
+            "group": false
+        },
+        {
+            "symbol": "wintry",
+            "info": [
+                { "count": 6, "x": 750 },
+                { "count": 5, "x": 250 },
+                { "count": 4, "x": 50 },
+                { "count": 3, "x": 12.5 }
+            ],
+            "group": false
+        },
+        {
+            "symbol": "grapes",
+            "info": [
+                { "count": 6, "x": 750 },
+                { "count": 5, "x": 250 },
+                { "count": 4, "x": 50 },
+                { "count": 3, "x": 12.5 }
+            ],
+            "group": false
+        },
+        {
+            "symbol": "seven",
+            "info": [
+                { "count": 6, "x": 3000 },
+                { "count": 5, "x": 500 },
+                { "count": 4, "x": 100 },
+                { "count": 3, "x": 25 }
+            ],
+            "group": false
+        }
+    ]
 }
